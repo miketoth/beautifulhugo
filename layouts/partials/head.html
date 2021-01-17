@@ -87,5 +87,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
   {{- end -}}
 
+  {{ range .Site.Params.custom_css }}
+    <link rel="stylesheet" href="{{ relURL (.) }}">
+  {{ end }}
+
 {{- partial "head_custom.html" . }}
 {{ template "_internal/google_analytics_async.html" . }}
