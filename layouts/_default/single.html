@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ if ne .Type "page" }}
+{{ if .Params.toc }}
 {{ .TableOfContents }}
 {{ end }}
 <div class="container" role="main">
