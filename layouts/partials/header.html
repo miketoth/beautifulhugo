@@ -1,14 +1,8 @@
 {{- partial "load-photoswipe-theme.html" . }}
 
-{{ if .IsHome }}
-  {{ if .Site.Params.homeTitle }}{{ $.Scratch.Set "title" .Site.Params.homeTitle }}{{ else }}{{ $.Scratch.Set "title" .Site.Title }}{{ end }}
-  {{ if .Site.Params.subtitle }}{{ $.Scratch.Set "subtitle" .Site.Params.subtitle }}{{ end }}
-  {{ if .Site.Params.bigimg }}{{ $.Scratch.Set "bigimg" .Site.Params.bigimg }}{{ end }}
-{{ else }}
-  {{ $.Scratch.Set "title" .Title }}
-  {{ if .Params.subtitle }}{{ $.Scratch.Set "subtitle" .Params.subtitle }}{{ end }}
-  {{ if .Params.bigimg }}{{ $.Scratch.Set "bigimg" .Params.bigimg }}{{ end }}
-{{ end }}
+{{ $.Scratch.Set "title" .Title }}
+{{ if .Params.subtitle }}{{ $.Scratch.Set "subtitle" .Params.subtitle }}{{ end }}
+{{ if .Params.bigimg }}{{ $.Scratch.Set "bigimg" .Params.bigimg }}{{ end }}
 {{ $bigimg := $.Scratch.Get "bigimg" }}
 {{ $title := $.Scratch.Get "title" }}
 {{ $subtitle := $.Scratch.Get "subtitle" }}
@@ -34,7 +28,11 @@
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <div class="{{ .Type }}-heading">
-                <h1>{{ with $.Scratch.Get "title" }}{{.}}{{ else }}<br/>{{ end }}</h1>
+		{{ if (default true (.Params.showTitle)) }}
+		<h1>{{ with $.Scratch.Get "title" }}{{.}}{{ else }}<br/>{{ end }}</h1>
+		{{ else }}
+		<br>
+		{{ end }}
                   {{ if $subtitle }}
                     {{ if eq .Type "page" }}
                       <hr class="small">
@@ -53,7 +51,7 @@
         <span class="img-desc" style="display: inline;"></span>
       </div>
     {{end}}
-    {{ if $title }}
+    {{ if (default true (.Params.showTitle)) }}
     <div class="intro-header no-img">
       <div class="container">
         <div class="row">
