@@ -2,7 +2,7 @@
 <div class="container" role="main">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
+      <article role="main" class="blog-post limitwidth">
         {{ if .Params.toc }}
         <div class="limitwidth">
         {{ .TableOfContents }}
@@ -44,6 +44,7 @@
         {{ end }}
       </article>
 
+      <div class="limitwidth">
       {{ if ne .Type "page" }}
         <ul class="pager blog-pager">
           {{ if .PrevInSection }}
@@ -86,6 +87,7 @@
           </div>
         {{ end }}
       {{ end }}
+    </div>
 
     </div>
   </div>
