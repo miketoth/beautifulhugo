@@ -165,3 +165,9 @@ id = "discord"
 url = "https://discord.gg/%s"
 title = "Discord"
 icon = "fab fa-discord"
+
+[[social_icons]]
+id = "kickstarter"
+url = "https://kickstarter.com/projects/%s"
+title = "Kickstarter"
+icon = "fab fa-kickstarter-k"
