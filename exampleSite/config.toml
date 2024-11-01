@@ -74,6 +74,7 @@ pygmentsCodefencesGuessSyntax = true
   weibo = "username"
   slack = "username"
   discord = "invite code (https://discord.gg/XXXXXXX)"
+  kickstarter = "creator/project (https://www.kickstarter.com/projects/XXXX/YYYY"
 
 [[menu.main]]
     name = "Blog"
