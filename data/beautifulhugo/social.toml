@@ -171,3 +171,9 @@ id = "kickstarter"
 url = "https://kickstarter.com/projects/%s"
 title = "Kickstarter"
 icon = "fab fa-kickstarter-k"
+
+[[social_icons]]
+id = "bluesky"
+url = "https://bsky.app/profile/%s"
+title = "Kickstarter"
+icon = "fab fa-bluesky"
